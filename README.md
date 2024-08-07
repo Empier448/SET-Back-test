@@ -1,20 +1,25 @@
-cmake_minimum_required(VERSION 3.0.0)
-project(ScreenerAPI VERSION 0.1.0)
+### Build tools used:
 
-include(CTest)
-enable_testing()
+    Visual Studio Code (Editor)
+    CMake (Build System)
+    VCPKG (Libraries/Dependencies)
+    Git with Github (Source Control)
 
-find_package(CURL CONFIG REQUIRED)
+### Libraries Used
 
-include_directories(${CMAKE_SOURCE_DIR}/include)
-include_directories(${CMAKE_SOURCE_DIR}/curl)
+    STL
+    LIBCURL
 
-file(GLOB SRCS src/*.cpp main.cpp)
+---
 
-add_executable(ScreenerAPI ${SRCS})
+### How to use:
 
-target_link_libraries(ScreenerAPI PRIVATE CURL::libcurl)
+1) Create a yAPI::Yahoo object
 
-set(CPACK_PROJECT_NAME ${PROJECT_NAME})
-set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
-include(CPack)
+2) Create a util::Ticker object
+
+3) Call Ticker::getNASDAQTickers to populate a vector filled with NASDAQ tickers
+
+4) Call Yahoo::getData to download all the data for each ticker!
+
+5) The fun times have come and we can now begin to perform some analysis on all 
